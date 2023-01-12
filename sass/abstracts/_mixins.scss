@@ -1,0 +1,29 @@
+@mixin clearFix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centerAbsolute{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin responsive($breakpoint){
+    @if $breakpoint == phone{
+        @media (max-width: 37.5em) { @content };
+    }
+    @if $breakpoint == tab-ver{
+        @media (max-width: 56.25em) { @content };
+    }
+    @if $breakpoint == tab-hor{
+        @media (max-width: 75em) { @content };
+    }
+    @if $breakpoint == desk-big{
+        @media (min-width: 112.5em) { @content };
+    }
+
+}
